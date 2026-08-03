@@ -123,6 +123,11 @@ Conversely, a single ISA can be implemented in various versions/different microa
 5. Microarchitecture: Pentium IV MicroArchitecture
 6. Circuits: PCB and logic gates
 7. Device: Raspberry Pi
+Correction:Devices here are the types of semiconductor technology used egs:
+    - Gallium-Arsenide: a non-silicon technology. Extremely fast frequency.
+    - Complementary Metal-Oxide Semiconductors (CMOS) >> dominant today
+    - Negative-channel Metal-Oxide Semiconductors (NMOS)
+    - Positive-channel Metal-Oxide Semiconductors (PMOS)
 
 ### 1.20
 
@@ -131,6 +136,7 @@ Yes, they are all levels of abstractions as the details of each level is hidden 
 ### 1.21
 
 The word processing software is often in the level of ISA. For example, LibreOffice/CorelDraw/etc. for Windows 11 always specifies it is for x86, 64-bit machine. Meaning it is an ISA written in x86 that only microarchitectures that implement x86 can process.
+Correction: Also, it is in the ISA because the user doesn't need to compile or assemble it before use. So, it must be in the correct machine language or ISA.
 
 ### 1.22
 
@@ -139,3 +145,4 @@ It will be most difficult while converting to the lowest level as an single mist
 ### 1.23
 
 Maintaining the ISA across multiple generation of microarchitectures means that softwares written for previous generations of MAs can still run.
+Correction: This feature is also called **backward compatibility**.
