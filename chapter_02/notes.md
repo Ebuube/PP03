@@ -18,3 +18,15 @@ Date: Tue  4 Aug 00:31:59 WAT 2026
 ```
 
 111000<sub>2</sub> = -8<sub>10</sub>
+
+Bitwisie Logical Operations
+---
+
+    1st DeMorgan's Law: ~(~A AND ~B) = A OR B
+
+    A   |   B   |   ~A  |   ~B  |   ~(~A AND ~B)    |   A OR B
+    -------------------------------------------------------
+    0   |   0   |   1   |   1   |       0           |   0
+    0   |   1   |   1   |   0   |       1           |   1
+    1   |   0   |   0   |   1   |       1           |   1
+    1   |   1   |   0   |   0   |       1           |   1
