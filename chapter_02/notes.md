@@ -84,4 +84,4 @@ Therefore:
 
 ### Example 2.13
 
-How is the number -6<sup>5</sup>-<sub>8</sub>
+How is the number -6<sup>5</sup>/<sub>8</sub>
