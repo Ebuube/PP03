@@ -84,4 +84,51 @@ Therefore:
 
 ### Example 2.13
 
-How is the number -6<sup>5</sup>/<sub>8</sub>
+How is the number -6<sup>5</sup>/<sub>8</sub> represented in the floating point data type?
+
+#### Solution
+
+*a*<sub>10</sub> = -6<sup>5</sup>/<sub>8</sub>
+
+= -6 + 5/8 = -6 + (1/8 + 4/8)
+
+Sign is negative
+
+binary for 6 = 110
+
+binary for 1/8 = 0.001
+
+binary for 4/8 = 1/2 = 0.1
+
+binary for 5/8 = 0.101
+
+binary for +6 + 5/8 = 110.101 = 1.10101⋅2<sup>2</sup>
+
+Putting in normalized form
+
+Sign (S) - Exponent - Fraction
+
+0-00000000-00000000000000000000000
+
+**S** = 1 i.e. negative number
+
+**Exponent** = 2
+Add 127 bias = 129 = 10000001<sub>2</sub> (unsigned)
+
+Main number = 1.10101
+
+But we have to discard the leading 1' bit since it is the only possible non-zero digit and we can always put it back on reconversion
+
+Therefore,
+
+**Fraction** = 10101 <sub>2</sub>
+
+Therefore final representation
+
+1-10000001-10101
+
+Putting everything together
+
+1-10000001-10101000000000000000000
+
+11000000110101000000000000000000<sub>float</sub>
