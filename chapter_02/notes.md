@@ -149,3 +149,72 @@ Putting everything together: decimal to float point data type
 ```
 
 smallestNormalizedNum - smallestSubNormalizedNum = largestNormalizedNum
+
+### Test of Knowledge
+
+What number corresponds to the following ﬂoating point representation?
+
+0 00000000 00001000000000000000000
+
+#### Solution
+
+Sign - Exponent Field - Fraction
+
+Sign = S = 0
+
+Exponent Field = 00000000
+
+This Field pattern is for denormalized numbers and it gives E the value -126
+
+E = -126
+
+Fraction
+
+Since, we are dealing with a denormalized number, the first leading digit is 0. So, no implicit leading 1 digit
+
+0.00001<sub>2</sub>
+
+= 1.0 * 2<sup>-5</sup>
+
+Putting the exponent, -126
+
+=> 1.0 * 2<sup>-5</sup> * 2 <sup>-126</sup>
+
+S is 0 thus it is a positive number
+
+=> 1.0 * 2<sup>-131</sup>
+
+= 2<sup>-131</sup>
+
+
+### Infinities
+
++infinity = 0 11111111 00000000000000000000000
+
+-infinity = 1 11111111 00000000000000000000000
+
+### Subnormal/Denormalized numbers
+
+All the bits in the exponent field is all set to `0`. And the exponent is always the value `-126`. There is no implicit 1. This means we only have 23-bit precision when representing denormalized numbers.
+
+The sign bit retains its meaning. i.e. 1 means negative number, 0 means positive number.
+
+The fraction field (mantissa) is intrepreted as `0.fraction`.
+
+So, the subnormal/denormalized numbers are expressed as
+
+-1<sup>S</sup> * 0.fraction * 2<sup>-126</sup>
+
+Example: 0 00000000 00001000000000000000000 is a denormalized number.
+
+Sign bit is 0 => positive number
+
+Exponent field: all 8 bits are 0 thus, it is a denormalized number.
+
+Fraction field = 00001
+
+Putting it all together
+
+base10 repr = -1<sup>0</sup> * 0.00001 * 2<sup>-126</sup>
+
+= 2<sup>-131</sup>
