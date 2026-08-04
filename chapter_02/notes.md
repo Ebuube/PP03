@@ -215,6 +215,6 @@ Fraction field = 00001
 
 Putting it all together
 
-base10 repr = -1<sup>0</sup> * 0.00001 * 2<sup>-126</sup>
+base<sup>10</sup> repr = -1<sup>0</sup> * 0.00001 * 2<sup>-126</sup>
 
 = 2<sup>-131</sup>
