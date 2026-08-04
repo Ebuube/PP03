@@ -3,13 +3,25 @@ Utilities functions for interconverting number representation
 """
 import re
 
-def bin_to_dec(binary: str, delim: str = '') -> str:
+from typing import TypedDict
+
+
+class IEEEResult(TypedDict):
+    sign: int
+    exponent: int
+    fraction: float
+    value: float
+    string: str
+    classification: str
+    format_spec: str
+
+def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult:
     """
     Convert a 32-bit binary float to standard form in base10
     The binary float should be in IEEE 745 standard
     sign-exponentfield-fraction
 
-    @binary: raw string for binary representation using IEEE 745 Standard
+    @ieee_float: raw string for binary representation using IEEE 745 Standard
     @delim: user's choice of delimiter
     Return: string for standard form in base10
     """
@@ -17,7 +29,7 @@ def bin_to_dec(binary: str, delim: str = '') -> str:
         rf'([01]){re.escape(delim)}([01]{{8}}){re.escape(delim)}([01]{{23}})'
     )
 
-    match = float_t.fullmatch(binary)
+    match = float_t.fullmatch(ieee_float)
 
     if not match:
         print("Invalid format")
@@ -27,30 +39,47 @@ def bin_to_dec(binary: str, delim: str = '') -> str:
     exp_bin = match.group(2)
     frac_bin = match.group(3)
 
-    sign_str = '-' if int(sign_bin, 2) else '+'
+    sign_val = int(sign_bin, 2)
+    sign_str = '-' if sign_val == True else '+'
     exp_dec = get_exponent(exp_bin)
     frac_dec = get_fraction(frac_bin)
 
     # Evaluate full number
     if exp_dec not in (-126, 255):
         num_str = f"{sign_str}1 x {1+frac_dec} x 2 ^ {exp_dec}"
-        return num_str
-
+        num_val = ((-1) ** sign_val) * (1 + frac_dec) * (2 ** exp_dec)
+        num_class = "normalized"
+    elif exp_dec == 255:
     # Evaluate infinities
-    if exp_dec == 255:
         num_str = f"{sign_str}∞"
-        return num_str
-
+        num_val = float("-inf") if sign_val == True else float("inf")
+        num_class = "infinities"
+    elif exp_dec == -126:
     # Evaluate subnormal numbers
-    if exp_dec == -126:
         num_str = f"{sign_str}1 x {frac_dec} x 2 ^ -126"
-        return num_str
+        num_val = ((-1) ** sign_val) * frac_dec * (2 ** -126)
+        num_class = "denormalized/subnormal"
+    else:
+        num_str = "Not a Number"
+        num_val = float("nan")
+        num_class = "Nan"
+
+    return {
+        "input": ieee_float,
+        "sign": sign_val,
+        "exponent": exp_dec,
+        "fraction": frac_dec,
+        "value": num_val,
+        "string": num_str,
+        "classification": num_class,
+        "format_spec": "IEEE 745 standard for 32-bit floating point data type",
+    }
 
 
 def get_fraction(frac: str) -> float:
     """
     Get the decimal value of the fraction/mantissa part of
-    a 32-bit float point data type
+    a 32-bit floating point data type
 
     @frac: 23-bit binary representation of fraction field
     """
