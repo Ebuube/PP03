@@ -31,7 +31,7 @@ class IEEEResult(TypedDict):
     classification: str
     format_spec: str
 
-def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult:
+def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
     """
     Convert a 32-bit binary float to standard form in base10
     The binary float should be in IEEE 745 standard
@@ -39,7 +39,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult:
 
     @ieee_float: raw string for binary representation using IEEE 745 Standard
     @delim: user's choice of delimiter
-    Return: string for standard form in base10
+    Return: IEEEResult dictionary of decoded values or '' if invalid
     """
     float_t = re.compile(
         rf'([01]){re.escape(delim)}([01]{{8}}){re.escape(delim)}([01]{{23}})'
@@ -78,7 +78,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult:
     else:
         num_str = "Not a Number"
         num_val = float("nan")
-        num_class = "Nan"
+        num_class = "NaN"
 
     return {
         "input": ieee_float,
