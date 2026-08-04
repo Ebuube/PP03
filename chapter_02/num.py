@@ -32,7 +32,7 @@ def bin_to_dec(binary: str, delim: str = '') -> str:
     frac_dec = get_fraction(frac_bin)
 
     # Evaluate full number
-    if exp_dec not in (0, 255):
+    if exp_dec not in (-126, 255):
         num_str = f"{sign_str}1 x {1+frac_dec} x 2 ^ {exp_dec}"
         return num_str
 
@@ -42,8 +42,8 @@ def bin_to_dec(binary: str, delim: str = '') -> str:
         return num_str
 
     # Evaluate subnormal numbers
-    if exp_dec == 0:
-        num_str = f"{sign_str}1 x 0.{frac_dec} x 2 ^ -126"
+    if exp_dec == -126:
+        num_str = f"{sign_str}1 x {frac_dec} x 2 ^ -126"
         return num_str
 
 
