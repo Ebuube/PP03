@@ -127,8 +127,10 @@ Therefore final representation
 
 1-10000001-10101
 
-Putting everything together
+Add trailing zeros to the fraction to complete the 23 bit representation
 
-1-10000001-10101000000000000000000
+1 10000001 10101000000000000000000
 
-11000000110101000000000000000000<sub>float</sub>
+Putting everything together: decimal to float point data type
+
+-6<sup>5</sup>/<sub>8</sub> = 1 10000001 10101000000000000000000
