@@ -55,9 +55,13 @@ What does the floating point data type
 
 represent?
 
+#### Solution
+
+Break the number to expose the three fields: sign, exponent and fraction fields.
+
 0-01111011-00000000000000000000000
 
-Normalized form says
+Normalized form binary representation says
 
 -1<sup>S</sup> * 1.fraction * 2<sup>exponent - 127</sup>, 1 <= exponent <= 254
 
@@ -73,4 +77,5 @@ Therefore:
 *a*<sub>10</sub> = -1<sup>0</sup> * 1.0 * 2<sup>123 - 127</sup>
 
 = 1 * 1.0 * 2<sup>-4</sup>
+
 *a*<sub>10</sub>= 0.0625
