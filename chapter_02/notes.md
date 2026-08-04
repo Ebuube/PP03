@@ -22,7 +22,9 @@ Date: Tue  4 Aug 00:31:59 WAT 2026
 Bitwisie Logical Operations
 ---
 
-### 1st DeMorgan's Law: ~(~A AND ~B) = A OR B
+### 1st DeMorgan's Law
+
+`~(~A AND ~B) = A OR B`
 
 | A | B | ~A | ~B | ~(~A AND ~B) | A OR B |
 |:-:|:-:|:--:|:--:|:------------:|:------:|
@@ -30,3 +32,17 @@ Bitwisie Logical Operations
 | 0 | 1 | 1 | 0 | 1 | 1 |
 | 1 | 0 | 0 | 1 | 1 | 1 |
 | 1 | 1 | 0 | 0 | 1 | 1 |
+
+### Experiment
+
+What happens if one inverts both inputs to an OR function, then inverts the output?
+
+| A | B | ~A | ~B | ~(~A OR ~B) | A AND B |
+|:-:|:-:|:--:|:--:|:-----------:|:-------:|
+| 0 | 0 | 1 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 0 | 0 |
+| 1 | 0 | 0 | 1 | 0 | 0 |
+| 1 | 1 | 0 | 0 | 1 | 1 |
+
+The table above expresses the 2nd DeMorgan's Law:
+`~(~A OR ~B) = A AND B`
