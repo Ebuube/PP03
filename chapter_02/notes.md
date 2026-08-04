@@ -46,3 +46,31 @@ What happens if one inverts both inputs to an OR function, then inverts the outp
 
 The table above expresses the 2nd DeMorgan's Law:
 `~(~A OR ~B) = A AND B`
+
+### Example 2.12
+
+What does the floating point data type
+
+*a*<sub>10</sub> = 00111101100000000000000000000000<sub>2</sub>
+
+represent?
+
+0-01111011-00000000000000000000000
+
+Normalized form says
+
+-1<sup>S</sup> * 1.fraction * 2<sup>exponent - 127</sup>, 1 <= exponent <= 254
+
+For the number *a*:
+
+S = 0 i.e. positive sign
+
+exponent field = 01111011<sub>2</sub> = 123<sub>10</sub>
+
+fraction field = 00000000000000000000000<sub>2</sub> = 0<sub>10</sub>
+
+Therefore:
+*a*<sub>10</sub> = -1<sup>0</sup> * 1.0 * 2<sup>123 - 127</sup>
+
+= 1 * 1.0 * 2<sup>-4</sup>
+*a*<sub>10</sub>= 0.0625
