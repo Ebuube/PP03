@@ -81,3 +81,7 @@ Therefore:
 = 1 * 1.0 * 2<sup>-4</sup>
 
 *a*<sub>10</sub>= 0.0625
+
+### Example 2.13
+
+How is the number -6<sup>5</sup>-<sub>8</sub>
