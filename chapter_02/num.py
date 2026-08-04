@@ -1,5 +1,21 @@
 """
 Utilities functions for interconverting number representation
+
+How to Use
+----
+>>> from pprint import pprint
+>>> import num
+>>> b = '0 11111110 11111111111111111111111'
+>>> pprint(num.decode_ieee745(b, delim=' '))
+{'classification': 'normalized',
+ 'exponent': 127,
+ 'format_spec': 'IEEE 745 standard for 32-bit floating point data type',
+ 'fraction': 0.9999998807907104,
+ 'input': '0 11111110 11111111111111111111111',
+ 'sign': 0,
+ 'string': '+1 x 1.9999998807907104 x 2 ^ 127',
+ 'value': 3.4028234663852886e+38}
+>>> 
 """
 import re
 
