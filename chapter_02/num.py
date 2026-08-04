@@ -13,7 +13,7 @@ How to Use
  'fraction': 0.9999998807907104,
  'input': '0 11111110 11111111111111111111111',
  'sign': 0,
- 'string': '+1 x 1.9999998807907104 x 2 ^ 127',
+ 'string': '+1 × 1.9999998807907104 × 2 ^ 127',
  'value': 3.4028234663852886e+38}
 >>> 
 """
@@ -62,7 +62,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
 
     # Evaluate full number
     if exp_dec not in (-126, 255):
-        num_str = f"{sign_str}1 x {1+frac_dec} x 2 ^ {exp_dec}"
+        num_str = f"{sign_str}1 × {1+frac_dec} × 2 ^ {exp_dec}"
         num_val = ((-1) ** sign_val) * (1 + frac_dec) * (2 ** exp_dec)
         num_class = "normalized"
     elif exp_dec == 255:
@@ -72,7 +72,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
         num_class = "infinities"
     elif exp_dec == -126:
     # Evaluate subnormal numbers
-        num_str = f"{sign_str}1 x {frac_dec} x 2 ^ -126"
+        num_str = f"{sign_str}1 × {frac_dec} × 2 ^ -126"
         num_val = ((-1) ** sign_val) * frac_dec * (2 ** -126)
         num_class = "denormalized/subnormal"
     else:
