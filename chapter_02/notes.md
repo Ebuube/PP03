@@ -134,3 +134,18 @@ Add trailing zeros to the fraction to complete the 23 bit representation
 Putting everything together: decimal to float point data type
 
 -6<sup>5</sup>/<sub>8</sub> = 1 10000001 10101000000000000000000
+
+### Other examples of Floating point numbers
+
+1. 0 10000011 00101000000000000000000 is 1.00101 ⋅ 2^4 = 18.5
+
+2. 1 10000010 00101000000000000000000 is 1.00101 ⋅ 2^3 = -9.25
+
+3. 0 11111110 11111111111111111111111 is 1.111111 ⋅ 2^(254-127)
+```text
+ 1.111111 approx 2
+
+ i.e 2 ⋅ 2^127 = 2^128
+```
+
+smallestNormalizedNum - smallestSubNormalizedNum = largestNormalizedNum
