@@ -59,6 +59,8 @@ represent?
 
 Break the number to expose the three fields: sign, exponent and fraction fields.
 
+Sign (S) - Exponent - Fraction
+
 0-01111011-00000000000000000000000
 
 Normalized form binary representation says
