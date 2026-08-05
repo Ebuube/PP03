@@ -147,7 +147,12 @@ if __name__ == "__main__":
 representation to its binary equivalent. Eg. 1 10000001 10101000000000000000000
 While entering IEEE floats, use this format: <num>,<delimiter>
 0-11111110-11111111111111111111111,-
-Where '-' is the delimiter. A space can be the delimiter""")
+Where '-' is the delimiter. A space can be the delimiter\
+
+You can also pass input from stdin or redirected standard in
+
+$ ./num.py < batch_file
+$ cat batch_file | ./num.py\n""")
     msg = "This is the end... Hold your breath and count to ten.."
 
     while True:
