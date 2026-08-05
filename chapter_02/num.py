@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Utilities functions for interconverting number representation
 
@@ -20,16 +21,20 @@ How to Use
 import re
 
 from typing import TypedDict
+from pprint import pprint
 
 
 class IEEEResult(TypedDict):
+    input: str
     sign: int
     exponent: int
     fraction: float
     value: float
     string: str
+    delimiter: str
     classification: str
     format_spec: str
+
 
 def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
     """
@@ -61,16 +66,16 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
     frac_dec = get_fraction(frac_bin)
 
     # Evaluate full number
-    if exp_dec not in (-126, 255):
+    if exp_bin not in ("00000000", "11111111"):
         num_str = f"{sign_str}1 × {1+frac_dec} × 2 ^ {exp_dec}"
         num_val = ((-1) ** sign_val) * (1 + frac_dec) * (2 ** exp_dec)
         num_class = "normalized"
-    elif exp_dec == 255:
+    elif exp_bin == "11111111" and exp_dec == 0:
     # Evaluate infinities
         num_str = f"{sign_str}∞"
         num_val = float("-inf") if sign_val == True else float("inf")
         num_class = "infinities"
-    elif exp_dec == -126:
+    elif exp_bin == "00000000":
     # Evaluate subnormal numbers
         num_str = f"{sign_str}1 × {frac_dec} × 2 ^ -126"
         num_val = ((-1) ** sign_val) * frac_dec * (2 ** -126)
@@ -82,6 +87,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
 
     return {
         "input": ieee_float,
+        "delimiter": delim,
         "sign": sign_val,
         "exponent": exp_dec,
         "fraction": frac_dec,
@@ -123,3 +129,27 @@ def get_exponent(exp: str) -> int:
         return 255
     else:
         return int(exp, 2) - 127
+
+if __name__ == "__main__":
+    print("""This program continuosly converts IEEE floating point \
+representation to its binary equivalent. Eg. 1 10000001 10101000000000000000000
+While entering IEEE floats, use this format: <num>,<delimiter>
+0 11111110 11111111111111111111111,-
+Where '-' is the delimiter. A space can be the delimiter""")
+    msg = "This is the end... Hold your breath and count to ten.."
+
+    while True:
+        try:
+            data = input("Enter IEEE float: ")
+            data = [item for item in data.split(sep=',')]
+            num = data[0].strip()
+            try:
+                delim = data[1]
+            except IndexError:
+                delim = ''
+        except (KeyboardInterrupt, EOFError):
+            print(msg)
+            break
+        if not num:
+            continue
+        pprint(decode_ieee745(num, delim))
