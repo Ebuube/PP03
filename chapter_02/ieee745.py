@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-IEEE 745 Decoder for Floating point data type
+IEEE 754 Decoder for Floating point data type
 
 Todo:
     []  Solve edge case of delimiter input being ','
     []  Create an encoder function to convert a decimal into
-        a float point `encode_ieee745(num_decimal, delim='-')`
+        a float point `encode_ieee754(num_decimal, delim='-')`
 
-This program decodes IEE 745 floating point data binary representation into decimal value. It also returns properties about the number such as classification, string representation, etc.
+This program decodes IEE 754 floating point data binary representation into decimal value. It also returns properties about the number such as classification, string representation, etc.
 
 How to Use
 ---
@@ -21,30 +21,30 @@ Eg:
 Blank lines are allowed in batch file. Sample use cases:
 ----
 $ # Interactive shell
-$ ./ieee745.py
+$ ./ieee754.py
 $
 $ # Read from STDIN
-$ cat batch_file | ./ieee745.py
+$ cat batch_file | ./ieee754.py
 $
 $ # OR
-$ echo "1-11111110-11111111111111111111111,-" | ./ieee745.py
+$ echo "1-11111110-11111111111111111111111,-" | ./ieee754.py
 $
 $ # Read from redirected STDIN
-$ ./ieee745.py < batch_file
+$ ./ieee754.py < batch_file
 $
 $ # Inside Python shell or another python file
 $ python3
 Python 3.14.6 (main, Jun 11 2026, 00:00:00) [GCC 16.1.1 20260515 (Red Hat 16.1.1-2)] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> import ieee745
+>>> import ieee754
 >>> from pprint import pprint
 >>> b = '0-11111110-11111111111111111111111'
 >>> delimiter = '-'
->>> pprint(ieee745.decode_ieee745(b, delimiter))
+>>> pprint(ieee754.decode_ieee754(b, delimiter))
 {'classification': 'normalized',
  'delimiter': '-',
  'exponent': 127,
- 'format_spec': 'IEEE 745 standard for 32-bit floating point data type',
+ 'format_spec': 'IEEE 754 standard for 32-bit floating point data type',
  'fraction': 0.9999998807907104,
  'input': '0-11111110-11111111111111111111111',
  'sign': 0,
@@ -70,13 +70,13 @@ class IEEEResult(TypedDict):
     format_spec: str
 
 
-def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
+def decode_ieee754(ieee_float: str, delim: str = '') -> IEEEResult | str:
     """
     Convert a 32-bit binary float to standard form in base10
-    The binary float should be in IEEE 745 standard
+    The binary float should be in IEEE 754 standard
     sign-exponentfield-fraction
 
-    @ieee_float: raw string for binary representation using IEEE 745 Standard
+    @ieee_float: raw string for binary representation using IEEE 754 Standard
     @delim: user's choice of delimiter
     Return: IEEEResult dictionary of decoded values or '' if invalid
     """
@@ -133,7 +133,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
         "value": num_val,
         "string": num_str,
         "classification": num_class,
-        "format_spec": "IEEE 745 standard for 32-bit floating point data type",
+        "format_spec": "IEEE 754 standard for 32-bit floating point data type",
     }
 
 
@@ -156,7 +156,7 @@ def get_exponent(exp: str) -> int:
     Get the decimal value of the exponent using 127 as the bias
     
     @exp: 8-bit binary representation of exponen according to
-        IEEE 745 Standard
+        IEEE 754 Standard
     """
     # Special exponents
     ZERO = '00000000'
@@ -182,9 +182,9 @@ Where '-' is the delimiter. A space can be the delimiter
 
 You can also pass input from STDIN or redirected STDIN
 
-$ ./ieee745.py < batch_file
-$ cat batch_file | ./ieee745.py
-$ echo 0-11111110-11111111111111111111111,- | ./ieee745.py
+$ ./ieee754.py < batch_file
+$ cat batch_file | ./ieee754.py
+$ echo 0-11111110-11111111111111111111111,- | ./ieee754.py
 """)
     msg = "This is the end... Hold your breath and count to ten.."
 
@@ -202,4 +202,4 @@ $ echo 0-11111110-11111111111111111111111,- | ./ieee745.py
             break
         if not num:
             continue
-        pprint(decode_ieee745(num, delim))
+        pprint(decode_ieee754(num, delim))
