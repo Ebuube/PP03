@@ -2,6 +2,11 @@
 """
 Utilities functions for interconverting number representation
 
+Todo:
+    - Create classification for -0.0 and +0.0 named 'zero'
+    - Read from batch file containing: <num>,<delimiter>
+    - Solve edge case of delimiter input being ','
+
 How to Use
 ----
 >>> from pprint import pprint
