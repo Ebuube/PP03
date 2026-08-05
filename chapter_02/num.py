@@ -77,16 +77,21 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
         num_str = f"{sign_str}1 × {1+frac_dec} × 2 ^ {exp_dec}"
         num_val = ((-1) ** sign_val) * (1 + frac_dec) * (2 ** exp_dec)
         num_class = "normalized"
-    elif exp_bin == "11111111" and exp_dec == 0:
-    # Evaluate infinities
-        num_str = f"{sign_str}∞"
-        num_val = float("-inf") if sign_val == True else float("inf")
-        num_class = "infinities"
-    elif exp_bin == "00000000":
+    elif exp_bin == "00000000" and frac_dec == 0:
+        # Evaluate zero
+        num_str = f"{sign_str}1 × {frac_dec} × 2 ^ {exp_dec}"
+        num_val = ((-1) ** sign_val) * 0
+        num_class = "zero"
+    elif exp_bin == "00000000" and frac_dec != 0:
     # Evaluate subnormal numbers
         num_str = f"{sign_str}1 × {frac_dec} × 2 ^ -126"
         num_val = ((-1) ** sign_val) * frac_dec * (2 ** -126)
         num_class = "denormalized/subnormal"
+    elif exp_bin == "11111111" and frac_dec == 0:
+    # Evaluate infinities
+        num_str = f"{sign_str}∞"
+        num_val = float("-inf") if sign_val == True else float("inf")
+        num_class = "infinities"
     else:
         num_str = "Not a Number"
         num_val = float("nan")
