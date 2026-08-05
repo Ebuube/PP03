@@ -6,6 +6,8 @@ Todo:
     - Create classification for -0.0 and +0.0 named 'zero'
     - Read from batch file containing: <num>,<delimiter>
     - Solve edge case of delimiter input being ','
+    - Create an encoder function to convert a decimal into
+        a float point `encode_ieee745(num_decimal, delim='-')`
 
 How to Use
 ----
