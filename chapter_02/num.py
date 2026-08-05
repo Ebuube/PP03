@@ -79,7 +79,7 @@ def decode_ieee745(ieee_float: str, delim: str = '') -> IEEEResult | str:
         num_class = "normalized"
     elif exp_bin == "00000000" and frac_dec == 0:
         # Evaluate zero
-        num_str = f"{sign_str}1 × {frac_dec} × 2 ^ {exp_dec}"
+        num_str = f"{sign_str}1 × 0"
         num_val = ((-1) ** sign_val) * 0
         num_class = "zero"
     elif exp_bin == "00000000" and frac_dec != 0:
@@ -149,7 +149,7 @@ While entering IEEE floats, use this format: <num>,<delimiter>
 0-11111110-11111111111111111111111,-
 Where '-' is the delimiter. A space can be the delimiter\
 
-You can also pass input from stdin or redirected standard in
+You can also pass input from STDIN or redirected STDIN
 
 $ ./num.py < batch_file
 $ cat batch_file | ./num.py\n""")
