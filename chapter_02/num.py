@@ -141,7 +141,7 @@ if __name__ == "__main__":
     print("""This program continuosly converts IEEE floating point \
 representation to its binary equivalent. Eg. 1 10000001 10101000000000000000000
 While entering IEEE floats, use this format: <num>,<delimiter>
-0 11111110 11111111111111111111111,-
+0-11111110-11111111111111111111111,-
 Where '-' is the delimiter. A space can be the delimiter""")
     msg = "This is the end... Hold your breath and count to ten.."
 
