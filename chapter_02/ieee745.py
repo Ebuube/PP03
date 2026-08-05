@@ -12,9 +12,9 @@ Todo:
 How to Use
 ----
 >>> from pprint import pprint
->>> import num
+>>> import ieee745
 >>> b = '0 11111110 11111111111111111111111'
->>> pprint(num.decode_ieee745(b, delim=' '))
+>>> pprint(ieee745.decode_ieee745(b, delim=' '))
 {'classification': 'normalized',
  'exponent': 127,
  'format_spec': 'IEEE 745 standard for 32-bit floating point data type',
@@ -151,8 +151,8 @@ Where '-' is the delimiter. A space can be the delimiter\
 
 You can also pass input from STDIN or redirected STDIN
 
-$ ./num.py < batch_file
-$ cat batch_file | ./num.py\n""")
+$ ./ieee745.py < batch_file
+$ cat batch_file | ./ieee745.py\n""")
     msg = "This is the end... Hold your breath and count to ten.."
 
     while True:
