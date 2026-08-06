@@ -92,7 +92,7 @@ $2^4$ = 16. So our range is from $-2^{4-1}$ to $+2^{4-1} - 1$. That is -8 to +7.
 1. $2^8$ = 256. i.e from -128 to +127. So the largest positive number is $127_{10}$ also $0111111_2$.
 2. It will be $-128_{10}$ also $1000000_2$.
 3. In *n* bit 2's complement code, the largest positive number is $2^{n-1} - 1$.
-4. $2^{n-1}$ is the greatest magnitude negative number in an *n*-bit complement binary representation.
+4. $2^{n-1}$ is the greatest magnitude negative number in an *n*-bit 2's complement binary representation.
 
 ### 2.9
 
