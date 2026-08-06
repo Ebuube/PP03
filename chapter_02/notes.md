@@ -1,4 +1,4 @@
-Date: Tue  4 Aug 00:31:59 WAT 2026
+Dat: Tue  4 Aug 00:31:59 WAT 2026
 
 6-bit 2's complement binary representation
 ---
@@ -218,3 +218,13 @@ Putting it all together
 base<sub>10</sub> repr = -1<sup>0</sup> * 0.00001 * 2<sup>-126</sup>
 
 = 2<sup>-131</sup>
+
+### Hexadecimal Notation
+
+0011110101101110 = a 16-bit binary
+
+Group into fours
+
+0011 1101 0110 1110<sub>2</sub> => 3 (13) 6 (10) <sub>16></sub>
+
+=> 3 D 6 E
