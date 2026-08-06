@@ -105,7 +105,7 @@ Given a number *+A*. If it were to be the max number in its range, the range wou
 
 -(A+1) to +A
 
-Total numbers needed would be: $\lvert -(A + 1) \rvert$ + 1 + A$
+Total numbers needed would be: $\lvert -(A + 1) \rvert + 1 + A$
 
 The extra 1 is for zero
 
@@ -130,3 +130,176 @@ See the image below for workings. The calculator got 79.994. Rounding it up give
 ### 2.10
 
 1. $invert(1010) + 0001 = 0101 + 0001 = 0110_2$
+2. $invert(01011010) + 00000001 = 10100101 + 00000001 = 10100110_2$
+3. $invert(11111110) + 00000001 = 00000001 + 00000001 = 00000010_2$
+4. $invert(0011 1001 1101 0011) + 0000 0000 0000 0001 = 1100 0110 0010 1100 + 0000 0000 0000 0001 = 1100 0110 0010 1101_2$
+
+### 2.11
+
+1. $102_{10} = 2^6 + 2^5 + 2^2 + 2^1 = 0110 0110_2$
+2. $64_{10} = 0100 0000_2$
+3. $33_{10} = 0010 0001_2$
+4. $-128_{10} = 1111 1111_2$
+5. $127_{10} = 1000 0000_2$
+
+### 2.12
+
+If the last two digits of a 2's complement binary number are 00, it means the number is divisible by 4.
+
+### 2.13
+
+
+Converting 2's complement binary to 8-bit equivalent.
+
+| n-bit | 8-bit |
+|:---:|:---:|
+| 1010 | 1000 0010 |
+| 011001 | 0001 1001 |
+| 11 1111 1000 | 1111 1000 |
+| 01 | 0000 0001 |
+
+For the third item in the table with 10 bits, just strip off excess bits from the right since they can't be stored.
+
+Alternatively, consider it as unsigned and convert to decimal.
+
+u = 11 1111 1000
+
+y = unsigned_binary_to_decimal(u)
+
+2s_complement_repr_of_u_in_n_bits = y modulo $2^n$
+
+
+This is also the same as the
+
+= u AND $00 1111 1111_2$
+
+i.e.
+
+= u AND $2^n - 1$
+
+These proposals are from observation
+
+### 2.13
+
+1.
+```text
+	1011
++	0001
+--------
+=   1100
+```
+2.
+```text
+	0000
++	1010
+--------
+=   1010
+```
+3.
+```text
+	1100
++	0011
+--------
+=   1111
+```
+4.
+```text
+	0101
++	0110
+--------
+=   1011
+```
+5. Here the **1** at the 5th position is lost because we are using an implicit 4-bit encoding system
+```text
+	1111
++	0001
+--------
+=   0000
+```
+
+### 2.15
+
+Shifting a binary number to the right performs division.
+
+### 2.16
+
+Write the results of the following additions as both eight-bit binary and decimal numbers. For each part, use standard binary addition as
+described in Section 2.5.1.
+
+```text
+	0000 0111
++	1111 1000
+-------------
+2=  1111 1111
+10= 511
+```
+
+```text
+	0000 0111
++	1000 0111
+-------------
+2=  1000 1110
+10= 270
+```
+
+```text
+	0000 0111
++	1111 1001
+-------------
+2=  0000 0000
+10= 0
+```
+
+### 2.17
+
+Add the following 2’s complement binary numbers. Also express the
+answer in decimal.
+
+1.
+```text
+	0001
++	1011
+--------
+2=	1100
+10=	-4
+```
+2.
+```text
+	0000 0011
++	0101 0101
+-------------
+2=	0101 1000
+10=	176
+```
+3.
+```text
+	0101
++	1100
+--------
+2=	0001
+10=	1
+```
+4.
+```text
+	01
++	10
+------
+2=	11
+10=	-1
+```
+
+### 2.19
+
+$-27_10$ as 2's complement
+
+| n-bits | $-27_10$ |
+|:---:|:---:|
+| 8-bits | 1110 0101 |
+| 16-bits |  1111 1111 1110 0101 |
+| 32-bits |  1111 1111 1111 1111 1111 1111 1110 0101 |
+
+This illustrates that increasing the number of bits used to represent a 2's complement number is the same as repeating the sign bit until you get the required number of bits.
+
+### 2.20
+
+
