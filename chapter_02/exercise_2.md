@@ -28,7 +28,15 @@ n ~= log<sub>2</sub>52
 
 Therefore, to represent the 52 character alphabet will reqruire at least 6 bits.
 
-Proper formula: To represent an alphabet with *n* different characters, the least number of bits required is
+Proper formula: To represent an alphabet with *n* different characters, the least number of bits required, *x* is
 
-$\lceil\log_2(26) \rceil$
+x = $\lceil\log_2(n) \rceil$
 
+### 2.3
+
+1. For 400 different students we need = $\lceil\log_2(400) \rceil$ = 9. So we need 9 bits.
+2. 9 bits is enough for 512 students. So extra 112 students can be admitted.
+
+### 2.4
+
+Given *n* bits we can represent **$2^n$** unsigned integers in the range 0 to $2^n$ -1
