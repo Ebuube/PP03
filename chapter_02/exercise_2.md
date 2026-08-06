@@ -302,4 +302,65 @@ This illustrates that increasing the number of bits used to represent a 2's comp
 
 ### 2.20
 
+1. Decimal: -4 + 3  = -1
 
+Binary
+```text
+	1100
++	0011
+--------
+2=	1111
+10=	-1
+```
+
+2. Decimal: -4 + 4 = 0
+
+Binary
+```text
+	1100
++	0100
+--------
+2=	0000
+10=	0
+```
+
+This generated an overflow but was discarded and resulted in +0 which was the correct answer.
+
+3. Decimal: 7 + 1 = 8
+
+Binary
+```text
+	0111
++	0001
+--------
+2=	1000
+10=	-8
+```
+
+This generated an overflow and gave the next coded number round the clock/range -8 to +7
+
+4. Decimal: -8 - 1 = -9
+
+Binary
+```text
+	1000
+−	0001
+--------
+2=	0111
+10=	+7
+```
+
+This generated an underflow since -9 can't be represented as 4-bits 2's complement number.
+
+5. Decimal: +7 + (-7) = 0
+
+Binary
+```text
+	0111
++	1001
+--------
+2=	0000
+10=	0
+```
+
+The addition generated an overflow and resulted in 0 which is the correct answer.
