@@ -39,4 +39,94 @@ x = $\lceil\log_2(n) \rceil$
 
 ### 2.4
 
-Given *n* bits we can represent **$2^n$** unsigned integers in the range 0 to $2^n$ -1
+Given *n* bits we can represent **$2^n$** unsigned integers in the range 0 to $2^n$ - 1
+
+### 2.5
+
+Using 5 bits to represent 7 and -7
+
+|   Representation  |   7   |   -7  |
+|:---:|:---:|:---:|
+| 1's complement | 00111 | 11000 |
+| signed magnitude | 00111 | 10111 |
+| 2's complement | 00111 | 11001 |
+
+### 2.6
+
+6 bits 2's complement representation of -32.
+
+0 = 000000
+
+32 = 010000
+
+-32 = 110000
+
+### 2.7
+
+Create a table showing the decimal values of all four-bit 2’s complement
+numbers.
+
+$2^4$ = 16. So our range is from -8 to +7
+
+| 4-bit number | Decimal value |
+|:---:|:---:|
+| 1010 | -8 |
+| 1001 | -7 |
+| 1010 | -6 |
+| 1011 | -5 |
+| 1100 | -4 |
+| 1101 | -3 |
+| 1110 | -2 |
+| 1111 | -1 |
+| 0000 | 0 |
+| 0001 | 1 |
+| 0010 | 2 |
+| 0011 | 3 |
+| 0100 | 4 |
+| 0101 | 5 |
+| 0110 | 6 |
+| 0111 | 7 |
+
+### 2.8
+
+1. $2^8$ = 256. i.e from -128 to +127. So the largest positive number is $127_10$ also $0111111_2$.
+2. It will be $-128_10$ also $1000000_2$.
+3. In *n* bit 2's complement code, the largest positive number is $2^(n-1)$ - 1.
+4. $2^(n-1)$ is the greatest magnitude negative number in an *n*-bit complement binary representation.
+
+### 2.9
+
+How many bits are needed to represent Avogadro’s number (6.02 ⋅ 1023 )
+in 2’s complement binary representation?
+
+#### Solution
+
+Given a number *+A*. If it were to be the max number in its range, the range would be
+
+-(A+1) to +A
+
+Total numbers needed would be: $\lvert-(A + 1)\lvert$ + 1 + A
+
+The extra 1 is for zero
+
+Total numbers required: 2(A + 1)
+
+Remeber min number of bits, *n*, required to represent a decimal number y is
+
+n = $\lceil log_2(y) \lceil$
+
+Using y = 2(A + 1)
+
+n = $\lceil log_2(2(A + 1)) \lceil$
+
+= $\lceil log_2(2((6.02 * 10^23) + 1)) \lceil$
+
+Which gives us the value: 80
+
+See the image below for workings. The calculate got 79.994. Rounding it up gives 80. So we need a **80 bits** to represent the Avogadro's number.
+
+![Calculation](images/max_bits_for_avogadro-2026-08-06_13-55.png)
+
+### 2.10
+
+1. $invert(1010) + 0001 = 0101 + 0001 = $0110_2$
