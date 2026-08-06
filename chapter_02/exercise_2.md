@@ -30,11 +30,11 @@ Therefore, to represent the 52 character alphabet will reqruire at least 6 bits.
 
 Proper formula: To represent an alphabet with *n* different characters, the least number of bits required, *x* is
 
-x = $\lceil\log_2(n) \rceil$
+x = $\lceil log_2(n) \rceil$
 
 ### 2.3
 
-1. For 400 different students we need = $\lceil\log_2(400) \rceil$ = 9. So we need 9 bits.
+1. For 400 different students we need = $\lceil log_2(400) \rceil$ = 9. So we need 9 bits.
 2. 9 bits is enough for 512 students. So extra 112 students can be admitted.
 
 ### 2.4
@@ -66,11 +66,11 @@ Using 5 bits to represent 7 and -7
 Create a table showing the decimal values of all four-bit 2’s complement
 numbers.
 
-$2^4$ = 16. So our range is from -8 to +7
+$2^4$ = 16. So our range is from $-2^{4-1}$ to $+2^{4-1} - 1$. That is -8 to +7.
 
 | 4-bit number | Decimal value |
 |:---:|:---:|
-| 1010 | -8 |
+| 1000 | -8 |
 | 1001 | -7 |
 | 1010 | -6 |
 | 1011 | -5 |
@@ -89,10 +89,10 @@ $2^4$ = 16. So our range is from -8 to +7
 
 ### 2.8
 
-1. $2^8$ = 256. i.e from -128 to +127. So the largest positive number is $127_10$ also $0111111_2$.
-2. It will be $-128_10$ also $1000000_2$.
-3. In *n* bit 2's complement code, the largest positive number is $2^(n-1)$ - 1.
-4. $2^(n-1)$ is the greatest magnitude negative number in an *n*-bit complement binary representation.
+1. $2^8$ = 256. i.e from -128 to +127. So the largest positive number is $127_{10}$ also $0111111_2$.
+2. It will be $-128_{10}$ also $1000000_2$.
+3. In *n* bit 2's complement code, the largest positive number is $2^{n-1} - 1$.
+4. $2^{n-1}$ is the greatest magnitude negative number in an *n*-bit complement binary representation.
 
 ### 2.9
 
@@ -105,28 +105,28 @@ Given a number *+A*. If it were to be the max number in its range, the range wou
 
 -(A+1) to +A
 
-Total numbers needed would be: $\lvert-(A + 1)\lvert$ + 1 + A
+Total numbers needed would be: $\lvert -(A + 1) \rvert$ + 1 + A$
 
 The extra 1 is for zero
 
 Total numbers required: 2(A + 1)
 
-Remeber min number of bits, *n*, required to represent a decimal number y is
+Remeber min number of bits, *n*, required to represent a decimal number *y* is
 
-n = $\lceil log_2(y) \lceil$
+n = $\lceil log_2(y) \rceil$
 
 Using y = 2(A + 1)
 
-n = $\lceil log_2(2(A + 1)) \lceil$
+n = $\lceil log_2(2(A + 1)) \rceil$
 
-= $\lceil log_2(2((6.02 * 10^23) + 1)) \lceil$
+= $\lceil log_2(2((6.02 * 10^23) + 1)) \rceil$
 
 Which gives us the value: 80
 
-See the image below for workings. The calculate got 79.994. Rounding it up gives 80. So we need a **80 bits** to represent the Avogadro's number.
+See the image below for workings. The calculator got 79.994. Rounding it up gives 80. So we need **80 bits** to represent the Avogadro's number.
 
 ![Calculation](images/max_bits_for_avogadro-2026-08-06_13-55.png)
 
 ### 2.10
 
-1. $invert(1010) + 0001 = 0101 + 0001 = $0110_2$
+1. $invert(1010) + 0001 = 0101 + 0001 = 0110_2$
