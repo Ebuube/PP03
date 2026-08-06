@@ -1,8 +1,8 @@
 # Introduction to bits and Gates and C and Beyond by Patt and Pattel
 
-Get a copy: ![Copy](https://dokumen.pub/introduction-to-computing-systems-from-bits-amp-gates-to-c-amp-beyond-3nbsped-9781260150537-9781260424744-126042474x-1260150534.html)
+Get a copy: [Copy](https://dokumen.pub/introduction-to-computing-systems-from-bits-amp-gates-to-c-amp-beyond-3nbsped-9781260150537-9781260424744-126042474x-1260150534.html)
 
-For Solutions to exercises, the Errata and the LC-3 Simulator -> ![here](https://highered.mheducation.com/sites/1260150534/student_view0/)
+For Solutions to exercises, the Errata and the LC-3 Simulator -> [here](https://highered.mheducation.com/sites/1260150534/student_view0/)
 
 After this study:
 
