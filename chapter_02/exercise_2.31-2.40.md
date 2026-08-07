@@ -179,7 +179,53 @@ decimal numbers.
 
 1. 0 10000000 11100000000000000000000
 2. 1 10000100 10111010111000000000000
-3. 0 00000000 00000000000000000000000
+3. 0 00000000 00000000000000000000000 ? (Unsolved)
 4. 0 10001110 11110100000000000000000
 
-# Rough work
+### 2.40
+
+1. 0 10000000 00000000000000000000000
+Sign-bit = 0 => Positive
+
+Fraction = 0.00 ; Resultant fraction => 1.fraction = 1.000
+
+Stored exponent = 128
+Real exponent = 128 - 127 (bias) = 1
+
+Normalized form = $(-1)^0 * 1.00 * 2^1$
+= 1 * 1.00 * 2
+= 2.00
+
+2. 1 10000011 00010000000000000000000
+Sign bit = 1 => Negative
+
+Fraction = 0.0001 ; Resultant Fraction => 1.0001
+
+Stored exponent = 131
+Real exponent = 131 - 127 = 4
+
+Normalized form = $(-1)^1 * 1.0001 * 2^4$
+$= -1 * 1.0001 * 2^4$
+$= -1 * 10001$
+$= -1 * 17$
+= -17
+
+3. 0 11111111 00000000000000000000000
+Sign bit = 0 => Positive
+
+Stored Exponent = 255 ; Therefore infinity.
+
+=> +infinity
+
+4. 1 10000000 10010000000000000000000
+Sign bit = 1 => Negative
+
+Fraction = 0.1001 ; Resultant Fraction = 1.1001
+
+Stored exponent = 128
+Real exponent = 128 - 127 = 1
+
+Normalized form $= (-1)^1 * 1.1001 * 2^1$
+= -1 * 11.001
+= -(3 + 1/8)
+= -3.125
