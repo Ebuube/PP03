@@ -11,9 +11,11 @@ Given the numbers *a* and *b*. Overflow occurs if (a + b) > max positive number 
 
 Where max positive number for n-bits is $2^{n-1} - 1$.
 
-Underflow is when the sum of addition of (negative numbers especially) result in a negative value too low below the lower range of the n-bit representation.
+Underflow is when the sum of addition of (negative numbers especially) result in a negative value too low below the lower range of the n-bit representation. This results in a positive number.
 
 Where max negative number for n-bits is $2^{n-1}$.
+
+> The textbook uses overflow to mean any of underflow or overflow.
 
 ### 2.22
 
@@ -30,7 +32,7 @@ This caused an overflow into a negative number.
 
 ### 2.23
 
-Overflow occurs in unsigned numbers' addition when the result is greater than $2^n - 1$. Where *n* is the number of bits.
+Overflow occurs in unsigned numbers' addition when the result is greater than $2^n - 1$. Where *n* is the number of bits. This results in a carry out of the leftmost bit.
 
 ### 2.24
 
