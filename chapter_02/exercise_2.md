@@ -136,24 +136,27 @@ See the image below for workings. The calculator got 79.994. Rounding it up give
 
 ### 2.11
 
+For converting negative decimal to 2's complement: convert the magnitude to binary and just add $01_2$ to it.
+
 1. $102_{10} = 2^6 + 2^5 + 2^2 + 2^1 = 0110 0110_2$
 2. $64_{10} = 0100 0000_2$
 3. $33_{10} = 0010 0001_2$
-4. $-128_{10} = 1111 1111_2$
-5. $127_{10} = 1000 0000_2$
+4. $-128_{10} = 1000 0000_2$
+5. $127_{10} = 0111 1111_2$
 
 ### 2.12
 
-If the last two digits of a 2's complement binary number are 00, it means the number is divisible by 4.
+If the last two digits of a 2's complement binary number are 00, it means the number is a multiple of 4.
 
 ### 2.13
 
-
 Converting 2's complement binary to 8-bit equivalent.
+
+This is sign extension in play. Just repeat the sign bit to fill in the missing bits at the left.
 
 | n-bit | 8-bit |
 |:---:|:---:|
-| 1010 | 1000 0010 |
+| 1010 | 1111 1010 |
 | 011001 | 0001 1001 |
 | 11 1111 1000 | 1111 1000 |
 | 01 | 0000 0001 |
@@ -179,7 +182,7 @@ i.e.
 
 These proposals are from observation
 
-### 2.13
+### 2.14
 
 1.
 ```text
@@ -219,28 +222,38 @@ These proposals are from observation
 
 ### 2.15
 
-Shifting a binary number to the right performs division.
+Shifting a binary number to the right performs division by 2.
 
 ### 2.16
 
 Write the results of the following additions as both eight-bit binary and decimal numbers. For each part, use standard binary addition as
-described in Section 2.5.1.
+described in Section 2.5.1. (+7) + (-7)
+
+For converting negative binary in 2's complement to decimal, invert every single bit and add $01_2$. Get the magnitude and put a negative sign.
+
+#### 1's complement
 
 ```text
 	0000 0111
 +	1111 1000
 -------------
 2=  1111 1111
-10= 511
+10= -0
 ```
+
+#### Signed magnitude
 
 ```text
 	0000 0111
 +	1000 0111
 -------------
 2=  1000 1110
-10= 270
+10= -14
 ```
+
+#### 2's complement
+
+There was a discarded carry out of the 8th bit.
 
 ```text
 	0000 0111
@@ -269,15 +282,15 @@ answer in decimal.
 +	0101 0101
 -------------
 2=	0101 1000
-10=	176
+10=	84
 ```
 3.
 ```text
 	0101
-+	1100
++	0110
 --------
-2=	0001
-10=	1
+2=	1011
+10=	-5
 ```
 4.
 ```text
@@ -286,6 +299,47 @@ answer in decimal.
 ------
 2=	11
 10=	-1
+```
+
+### 2.18
+
+Add the following unsigned binary numbers. Also, express the answer in
+decimal.
+
+1.
+```text
+	0001
++	1011
+--------
+2=	1100
+10=	12
+```
+
+2.
+```text
+	0000 0011
++	0101 0101
+-------------
+2=	0101 1000
+10=	88
+```
+
+3.
+```text
+	0101
++	0110
+--------
+2=	1011
+10=	11
+```
+
+4.
+```text
+	01
++	10
+--------
+2=	11
+10=	3
 ```
 
 ### 2.19
@@ -298,7 +352,7 @@ $-27_10$ as 2's complement
 | 16-bits |  1111 1111 1110 0101 |
 | 32-bits |  1111 1111 1111 1111 1111 1111 1110 0101 |
 
-This illustrates that increasing the number of bits used to represent a 2's complement number is the same as repeating the sign bit until you get the required number of bits.
+This illustrates that increasing the number of bits used to represent a 2's complement number is performed repeating the sign bit until you get the required number of bits. This means that Sign extension does not affect the value represented.
 
 ### 2.20
 
