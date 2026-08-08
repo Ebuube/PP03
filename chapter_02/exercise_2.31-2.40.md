@@ -97,7 +97,7 @@ OR  0101
 
 ### 2.35
 
-Masks are used to retrieve/set bits at certain positions in a bit vector.
+Masks are used to clear & set bits at certain positions in a bit vector. Also to retrieve bits.
 
 ### 2.36
 
@@ -134,7 +134,7 @@ Criteria for Addition operation with no overflow.
 
 - if sign bit of both operands is 1, then the result should have a sign bit of 1.
 - if sign bit of both operands is 0, then the result should have a sign bit of 0.
-- if sign bit of both operands are different, an overflow is not possible. So ignore.
+- if sign bit of both operands are different, an overflow is not possible with mixed signs in 2's complement.
 
 This means that an overflow occurs if sign bit of n and m are the same but not the same with the sign bit of the result.
 
@@ -146,7 +146,9 @@ Steps:
 
 Summary of function *is_overflow*.
 
-is_overflow(n, m, s) = ((n AND m) XOR s) AND 1000
+is_overflow(n, m, s) = (NOT(n XOR m) AND (n XOR s)) AND 1000
+
+> Correction: n XOR s means that the sign bit of n is different from the sign bit of the result s.
 
 Returns 0000 if no overflow.
 
@@ -163,10 +165,10 @@ If n and m are both four-bit unsigned numbers, and s is the four-bit result of a
 For unsigned numbers *n* and *m* being added to get *s*,
 Let $n_3, m_3, s_3$ be the leftmost bits.
 
-An overflow occurs if $n_3$ or $m_3$ is 1 and $s_3$ is not 1.
-An overflow also occurs if both $n_3$ and $m_3$ are 1.
+An overflow occurs if both $n_3$ and $m_3$ are 1.
+An overflow also occurs if $n_3$ is different from $m_3$ and $s_3$ is not 1.
 
-$is_overflow(n, m, s) = (n_3 AND m_3) OR ((n_3 OR m_3) AND (NOT s_3))$
+$is_overflow(n, m, s) = (n_3 AND m_3) OR ((n_3 XOR m_3) AND (NOT s_3))$
 
 Returns 0000 if no overflow.
 
