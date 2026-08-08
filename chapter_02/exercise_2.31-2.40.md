@@ -168,7 +168,7 @@ Let $n_3, m_3, s_3$ be the leftmost bits.
 An overflow occurs if both $n_3$ and $m_3$ are 1.
 An overflow also occurs if $n_3$ is different from $m_3$ and $s_3$ is not 1.
 
-$is_overflow(n, m, s) = (n_3 AND m_3) OR ((n_3 XOR m_3) AND (NOT s_3))$
+is_overflow(n, m, s) = $(n_3 AND m_3)$ OR $((n_3 XOR m_3)$ AND $(NOT s_3))$
 
 Returns 0000 if no overflow.
 
