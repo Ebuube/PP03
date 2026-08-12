@@ -167,20 +167,72 @@ Perform the following additions. The corresponding 16-bit binary numbers are in 
 	x7D96   0111 1101 1001 0110
 +	xF0A0   1111 0000 1010 0000
 ---------   -------------------
-=	xF6E36  0000 0000 0000 0000
+=	x6E36  0110 1110 0011 0110
 ```
 
+3.
 ```text
-	xA397
-+	xA35D
----------
-=	x0000
+	xA397   1010 0011 1001 0111
++	xA35D   1010 0011 0101 1101
+---------   -------------------
+=	x46F4   0100 0110 1111 0100
 ```
 
+4.
 ```text
-	x7D96
-+	x7412
----------
-=	x0000
+	x7D96   0111 1101 1001 0110
++	x7412   0111 0100 0001 0010
+---------   -------------------
+=	xF1A8   1111 0001 1010 1000
 ```
-e. What else can you say about the answers to parts c and d?
+
+5. What else can you say about the answers to parts c and d?
+In part c,there was an overflow by adding two negative numbers to get a positive number. Where as in part d, there was an overflow by adding to positive numbers to get a negative one.
+
+### 2.50
+
+Perform the following logical operations. Express your answers in hexadecimal notation.
+
+1. x5478 AND xFDEA
+```text
+    x5478   0101 0100 0111 1000
+AND xFDEA   1111 1101 1110 1010
+---------   -------------------
+=   x5468   0101 0100 0110 1000
+```
+
+2. xABCD OR x1234
+```text
+    xABCD   1010 1011 1100 1101
+OR  x1234   0001 0010 0011 0100
+---------   -------------------
+=   xBBFD   1011 1011 1111 1101
+```
+
+3. NOT((NOT(xDEFA)) AND (NOT(xFFFF)))
+
+#### Solution
+
+xDEFA = 1101 1110 1111 1010
+NOT(xDEFA) = 0010 0001 0000 0101
+
+xFFFF = 1111 1111 1111 1111
+NOT(xFFFF) = 0000 0000 0000 0000
+
+
+```text
+    NOT(xDEFA)  0010 0001 0000 0101
+AND NOT(xFFFF)  0000 0000 0000 0000
+--------------  -------------------
+=   x000        0000 0000 0000 0000
+= NOT(x000)
+= xFFFF
+```
+
+4. x00FF XOR x325C
+```text
+    x00FF   0000 0000 1111 1111
+XOR x325C   0011 0010 0101 1100
+---------   -------------------
+= x32A3      0011 0010 1010 0011
+```
