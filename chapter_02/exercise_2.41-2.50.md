@@ -164,10 +164,10 @@ Perform the following additions. The corresponding 16-bit binary numbers are in 
 
 2. Under probation
 ```text
-	x7D96
-+	xF0A0
----------
-=	xF6E36
+	x7D96   0111 1101 1001 0110
++	xF0A0   1111 0000 1010 0000
+---------   -------------------
+=	xF6E36  0000 0000 0000 0000
 ```
 
 ```text
