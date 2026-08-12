@@ -48,7 +48,7 @@ What operation(s) can be used to convert the binary representation for 3 (i.e., 
 Just add the binary representation of the number to the ascii representation for '0' (i.e. 0011 0000)
 
 E.g.
-$3_10 = 11_2 = 0000 0011_2$
+$3_{10} = 11_2 = 0000 0011_2$
 Add '0' = 0011 0000
 
 3 + '0' = 0000 0011 + 0011 0000 = 0011 0011
