@@ -38,6 +38,7 @@ Letter 'm' is the 13th letter in the English alphabet. 5 + 8 = 13. Perhaps he is
 4. x4c432d32
 =   4c	43	2d	32	
 =   L   C   -   2
+=   LC-2
 
 ### 2.44
 
@@ -58,8 +59,8 @@ Add '0' = 0011 0000
 
 Convert the following unsigned binary numbers to hexadecimal.
 1. 1101 0001 1010 1111
-=   B   1       A   F
-= xB1AF
+=   D   1       A   F
+= xD1AF
 
 2. 001 1111
 =   1   F
@@ -70,8 +71,8 @@ Convert the following unsigned binary numbers to hexadecimal.
 = x1
 
 4. 1110 1101 1011 0010
-=   E   C       A   2
-= xECA2
+=   E   D       B   2
+= xEDB2
 
 ### 2.46
 
@@ -187,7 +188,7 @@ Perform the following additions. The corresponding 16-bit binary numbers are in 
 ```
 
 5. What else can you say about the answers to parts c and d?
-In part c,there was an overflow by adding two negative numbers to get a positive number. Where as in part d, there was an overflow by adding to positive numbers to get a negative one.
+In part c,there was an overflow by adding two negative numbers to get a positive number. Where as in part d, there was an overflow by adding two positive numbers to get a negative one.
 
 ### 2.50
 
