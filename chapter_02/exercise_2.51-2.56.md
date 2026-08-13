@@ -11,6 +11,21 @@ What is the hexadecimal representation of the following numbers?
 = 675 + 1/8 + 1/2
 = 0010 1010 0011 + 0.101
 = 0010 1010 0011.101
+= 1.010100011101 * 2^9
+
+In IEEE floating point format:
+
+$= (-1)^S * 1.fraction * 2^E - 127$
+
+S = 0 (positive)
+fraction = 0.010100011101
+E = 127 + 9 = 136
+
+0 1000 1000 0101 0001 1101 0000 0000 000
+
+=> 0100 0100 0010 1000 1110 1000 0000 0000
+
+= x4428E800
 
 3. The ASCII string: Hello
 = H e l l o
@@ -68,7 +83,7 @@ We have represented numbers in base-2 (binary) and in base-16 (hex). We are now 
 
 1. What is the maximum unsigned decimal value that one can represent with 3 quad digits?
 
-It is $4^n - 1$ = 15
+It is $4^n - 1$ = 63
 
 2. What is the maximum unsigned decimal value that one can represent with n quad digits? (Hint: Your answer should be a function of n.)
 
@@ -111,6 +126,8 @@ Stored exponent = 4 + 127 = 131
 In IEEE floating point format
 
 = 0 1000 0011 1011 1100 0000 0000 0000 000
+
+= 0100 0001 1101 1110 0000 0000 0000 0000
 
 7. Given a black box that takes m quad digits as input and produces one quad digit for output, what is the maximum number of unique functions this black box can implement?
 
