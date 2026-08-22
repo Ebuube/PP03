@@ -9,9 +9,26 @@ See in ![Circuit_3.2](images/circuit_3.2.png)
 
 ### 3.3
 
-AND, OR, NAND, NOR, XOR
+A two-input logic function, F, takes inputs A, B.
 
-There are five of them.
+F(A,B) = 0 or 1 as possible values
+
+Each of A, B can be either 1 or 0
+
+A, B can be arranged in four possible ways
+00, 01, 10, 11
+
+And can be paired with ouputs that can be either 0 or 1
+
+So for each combination of A, B, the output can be 0 or 1.
+
+The question is asking how many total combinations are possible.
+
+For each it can be 2 outputs
+
+so 2 x 2 x 2 x 2 = 16 possible arrangements.
+
+So, there are 16 two-input logic functions are possible.
 
 ### 3.4
 
@@ -73,7 +90,7 @@ In volts.
 | 5 | 0 | 2.5 |
 | 5 | 5 | 0 |
 
-So when A is different from B, the output is indeterminate. Since it is not specifically high or low logic output but in betweeen. This could be because of short circuting that grounds the inputs from the p-type transistors.
+So when A is different from B, the output is indeterminate. Since it is not specifically high or low logic output but in betweeen. This is because of short circuting that grounds the inputs from the p-type transistors.
 
 ### 3.8
 
@@ -81,9 +98,9 @@ See in ![Circuit.3.8](images/circuit_3.8.png)
 
 ### 3.9
 
-The circuit links the output of one inverter into another inverter.
+If A is High (1), the right PMOS will connect the voltage supply (VDD) to OUT and to the right NMOS which connects to ground. This creates a short circuit.
 
-OUT = NOT(NOT(A))
+If A is Low (0), OUT is neither connected to the voltage source nor ground. We say OUT is **floating** because nothing keeps it in either of our logic levels High or Low.
 
 ### 3.10
 
